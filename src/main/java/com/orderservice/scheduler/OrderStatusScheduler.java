@@ -17,7 +17,7 @@ public class OrderStatusScheduler {
     }
 
     // runs every 5 minutes
-    @Scheduled(fixedRate = 300_000)
+    @Scheduled(fixedRateString = "${scheduler.order-status.fixed-rate:300000}")
     public void promotePendingOrders() {
         log.info("Scheduler: promoting all PENDING -> PROCESSING");
         service.movePendingToProcessing();

@@ -1,0 +1,175 @@
+{
+	"info": {
+		"_postman_id": "1338d62c-111a-4e5c-a2f1-7292d5149ded",
+		"name": "order-service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22946441"
+	},
+	"item": [
+		{
+			"name": "createorder",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"items\": [\n        {\n            \"productId\": \"P100\",\n            \"quantity\": 2,\n            \"price\": 299.99\n        },\n        {\n            \"productId\": \"P200\",\n            \"quantity\": 1,\n            \"price\": 149.50\n        },\n        {\n            \"productId\": \"P300\",\n            \"quantity\": 3,\n            \"price\": 99.00\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/orders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getorder",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/orders/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"orders",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1dce5054-e887-4303-bd53-e9bb44b0b9b8"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "list all order",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/orders?status=CANCELLED",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"orders"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "CANCELLED"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update order",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/orders/:id/status?status=PENDING",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"orders",
+						":id",
+						"status"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "PENDING"
+						}
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1dce5054-e887-4303-bd53-e9bb44b0b9b8"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cancel order",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/orders/:id/cancel",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"orders",
+						":id",
+						"cancel"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1dce5054-e887-4303-bd53-e9bb44b0b9b8"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
